@@ -7,11 +7,11 @@ Aquasoft es una página web diseñada para una empresa purificadora de agua que 
 -   **Contacto:** Formulario de contacto para que los clientes se comuniquen con la empresa.
 -   **Puntos de Venta:** Información sobre los diferentes puntos de venta donde los clientes pueden adquirir los productos.
 -   **Blog:** Sección con artículos relacionados con el agua purificada, salud y sostenibilidad.
--   **Productos: **Visualización de los productos disponibles (garrafones) y la opción de realizar pedidos.
--  ** Mi Cuenta:** Los usuarios registrados pueden ver y gestionar sus pedidos desde esta sección.
+-   **Productos:** Visualización de los productos disponibles (garrafones) y la opción de realizar pedidos.
+-  **Mi Cuenta:** Los usuarios registrados pueden ver y gestionar sus pedidos desde esta sección.
 
 ### Módulo de Administración
-- **Gestión de Usuarios: **Control de las cuentas de usuarios registrados.
+-   **Gestión de Usuarios:** Control de las cuentas de usuarios registrados.
 -   **Gestión de Ventas:** Visualización y administración de las ventas realizadas a través de la plataforma.
 
 ## Instalación
@@ -54,5 +54,4 @@ Este proyecto está licenciado bajo la Licencia Pública General Afero, versión
 - Cualquier uso del código para proporcionar un servicio en línea debe compartir también el código fuente resultante, incluidos los cambios realizados.
 - No está permitido el uso comercial del código sin cumplir con los términos de la AGPLv3.
 - Para más detalles, puedes revisar el archivo LICENSE en este repositorio o visitar Licencia AGPLv3.
-
       
