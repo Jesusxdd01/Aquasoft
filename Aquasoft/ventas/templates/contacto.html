@@ -1,0 +1,64 @@
+{% extends "estructura.html" %}
+{% load static %}
+{% block contenido %}
+<div>
+    <br><br>
+    <h2 class="centrar-texto titulo-gris">Contacto</h2>
+
+    <section>
+
+        <form class="formulario" id="formulario" method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Contactános llenando todos los campos</legend>
+
+                <div class="contenedor-campos">
+                    <div class="campo">
+                        <label for="{{ form.nombre.id_for_label }}">Nombre:</label>
+                        {{ form.nombre }}
+                        {% for error in form.nombre.errors %}
+                            <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="campo">
+                        <label for="{{ form.telefono.id_for_label }}">Teléfono:</label>
+                        {{ form.telefono }}
+                        {% for error in form.telefono.errors %}
+                            <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="campo">
+                        <label for="{{ form.correo.id_for_label }}">Correo:</label>
+                        {{ form.correo }}
+                        {% for error in form.correo.errors %}
+                            <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="campo">
+                        <label for="{{ form.tipoConsulta.id_for_label }}">Asunto:</label>
+                        {{ form.tipoConsulta }}
+                        {% for error in form.tipoConsulta.errors %}
+                            <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="campo">
+                        <label for="{{ form.mensaje.id_for_label }}">Mensaje:</label>
+                        {{ form.mensaje }}
+                        {% for error in form.mensaje.errors %}
+                            <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+            </fieldset>
+            <div class="centrar-texto">
+                <input class="btn-enviar" type="submit" value="Enviar">
+            </div>
+        </form>
+    </section>
+</div>
+
+{% endblock %}

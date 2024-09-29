@@ -1,0 +1,94 @@
+{% extends "estructura.html" %}
+{% load static %}
+
+{% block contenido %}
+
+<main>
+    <br><br><br>
+
+    <form class="formulario" id="formularioPedidos" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Realiza tu Pedido</legend>
+    
+            <div class="contenedor-campos crear-cuenta login">
+                {{ form.fecha_pedido.errors }}
+                <div class="campo">
+                    <label for="{{ form.fecha_pedido.id_for_label }}">Fecha de entrega:</label>
+                    {{ form.fecha_pedido}}
+                </div>
+                <div class="contenedor-campos crear-cuenta login" style="display: none;">
+                    {{ form.cliente.errors }}
+                    <div class="campo">
+                        <label for="{{ form.cliente.id_for_label }}">Nombre:</label>
+                        {{ form.cliente }}
+                    </div>
+                </div>
+                {{ form.producto.errors }}
+                <div class="campo">
+                    <label for="{{ form.producto.id_for_label }}">Producto:</label>
+                    {{ form.producto }}
+                </div>
+                {{ form.precioUnitario.errors }}
+                <div class="campo">
+                    <label for="{{ form.precioUnitario.id_for_label }}">Precio Unirario:</label>
+                    {{ form.precioUnitario }}
+                </div>
+                {{ form.cantidad.errors }}
+                <div class="campo">
+                    <label for="{{ form.cantidad.id_for_label }}">Cantidad:</label>
+                    {{ form.cantidad }}
+                </div>
+                {{ form.total.errors }}
+                <div class="campo">
+                    <label for="{{ form.total.id_for_label }}">Total:</label>
+                    {{ form.total }}
+                </div>
+                <!-- Agregamos el campo de precio_producto -->
+                <!--<div class="campo">
+                    <label for="{{ form.precio_producto.id_for_label }}">Precio Producto:</label>
+                    {{ form.precio_producto }}
+                </div>
+            -->
+                {{ form.comentarios.errors }}
+                <div class="campo">
+                    <label for="{{ form.comentarios.id_for_label }}">Comentarios:</label>
+                    {{ form.comentarios }}
+                </div>
+                <!-- Agrega más campos aquí según sea necesario -->
+            </div>
+        </fieldset>
+        <div class="centrar-texto">
+            <button type="submit" class="btn-enviar btn-enviar-pedido">Pedir</button>
+        </div>
+    </form>
+
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <p>¿Estás seguro de que deseas realizar el pedido?</p>
+            <button class="btn-confirmar btn-Si" id="confirmBtn">Sí</button>
+            <button class="btn-confirmar btn-No" id="cancelBtn">No</button>
+        </div>
+    </div>
+
+    <div class="modal" id="orderConfirmedModal">
+        <div class="modal-content">
+            <p>¡Tu pedido ha sido confirmado!</p>
+            <!--<p><a href="{% url 'misPedidos'%}" class="txt-resaltado" >Ver detalles</a></p>-->
+            <button class="btn-confirmar btn-Si" id="closeOrderConfirmedModalBtn">Cerrar</a></button>
+        </div>
+    </div>
+
+    <script src="../../static/js/confirmarEnvio.js"></script>
+    <script src="../../static/js/pedidos.js"></script>
+   
+ 
+
+
+</main>
+
+
+
+
+
+{% endblock %}

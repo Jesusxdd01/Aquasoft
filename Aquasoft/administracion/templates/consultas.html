@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div>
+    
+
+    <div id="EliminarPersonalModal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title text-dark">Eliminar</h5>
+                </div>
+                <div class="modal-body bg-dark text-white">
+                    <p class="labelmodal">¿Estás seguro?</p>
+                    <form method="POST" action="{% url 'DeleteConsulta' %}">{% csrf_token %}
+                        <input type="hidden" id="id_consulta" name="id_consulta">
+                </div>
+                <div class="modal-footer bg-dark text-white">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                       Volver
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        Aceptar
+                    </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card card-body" style="overflow:scroll">
+                <table class="table table-hover table-primary" id="myTable">
+                    <thead>
+                        <tr>
+                            <th># ID</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>Correo</th>
+                            <th>Mensaje</th>
+                            <th>Avisos</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-dark">
+                        {% for i in contacto %}
+                        <tr>
+                            <td>{{i.id}}</td>
+                            <td>{{i.nombre}}</td>
+                            <td>{{i.telefono}}</td>
+                            <td>{{i.correo}}</td>
+                            <td>{{i.mensaje}}</td>
+                            <td>{{i.avisos}}</td>
+                                                      
+
+                            <td>
+                                                         
+                                <button onclick="eliminarConsulta('{{i.id}}')" class="btn btn-dark-outline btn-sm"
+                                    data-toggle="modal" href="#EliminarPersonalModal"><img
+                                        src="{% static 'index/img/delete.png' %}" alt="Error" width="30"></button>
+                                
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

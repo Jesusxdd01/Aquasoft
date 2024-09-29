@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel='icon' href='{% static "img/icono.png" %}' type='image/x-icon'>
+    <link rel='stylesheet' href='{% static "css/normalize.css" %}'>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+        crossorigin="crossorigin" as="font">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel='stylesheet' href='{% static "css/style.css" %}'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a class="logo" href="{% url 'inicio' %}" class="navegacion__enlace">
+                <img loading='lazy' src='{% static "img/logoAqua.jpg"  %}' alt='logo' id='logoAgua'>
+            </a>
+        </div>
+
+        <div class="bars">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <nav class="nav-bar">
+            <ul>
+                <li>
+                    <a href="{% url 'inicio' %}" class="navegacion__enlace">Inicio</a>
+
+                <li>
+                    <a href="{% url 'productosPagina' %}" class="navegacion__enlace">Productos</a>
+                </li>
+                </li>
+                <li>
+                    <a href="{% url 'puntos' %}" class="navegacion__enlace">Puntos de Venta</a>
+
+                </li>
+                <li>
+                    <a href="{% url 'blog' %}" class="navegacion__enlace">Blog</a>
+
+                </li>
+                <li>
+                    <a href="{% url 'contacto' %}" class="navegacion__enlace">Contacto</a>
+                </li>
+                <li>
+                    {% if user.is_authenticated %}
+                        <div class="opsMoviles">
+                           <!-- <a class="navegacion__enlace" href="{% url 'usuarioUpdate' %}">Mis Datos</a>-->
+                            <a class="navegacion__enlace" href="{% url 'misPedidos' %}" >Pedidos</a>
+                            <a class="navegacion__enlace" href="{% url 'userOut' %}" id="logoutLink">Cerrar Sesión</a>
+                        </div>
+                        <div class="opsOrdenadores">
+                            <div class="miCuenta"> <a href="" class="navegacion__enlace" >Hola! {{ user.first_name }}</a>
+                                <div class="submenu">
+                                    <!--<a class="navegacion__enlace" href="{% url 'usuarioUpdate' %}">Mis Datos</a>-->
+                                    <a class="navegacion__enlace" href="{% url 'misPedidos' %}">Pedidos</a>
+                                    <a class="navegacion__enlace" href="{% url 'userOut' %}" id="logoutLinkSubmenu">Cerrar Sesión</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="opsMoviles">
+                            <a class="navegacion__enlace" href="{% url 'userIn' %}">Iniciar Sesión</a>
+                            <a class="navegacion__enlace" href="{% url 'usuarioCreate' %}">Crear Cuenta</a>
+                        </div>
+                        <div class="opsOrdenadores">
+                            <div class="miCuenta"> <a href="" class="navegacion__enlace">Mi Cuenta</a>
+                                <div class="submenu">
+                                    <a class="navegacion__enlace" href="{% url 'userIn' %}">Iniciar Sesión</a>
+                                    <a class="navegacion__enlace" href="{% url 'usuarioCreate' %}">Crear Cuenta</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}    
+                </li>
+            </ul>
+        </nav>
+        <script src="{% static "js/nav.js"  %}"></script>
+    </header>
+
+
+    <!-- Main content -->
+    <section class="contenido">
+        <div class="container-fluid">
+            <div class="modal" id="confirmModalSesion">
+                <div class="modal-content">
+                    <p>¿Seguro que deseas cerrar sesión?</p>
+                    <button class="btn-confirmar btn-Si" id="confirmBtnSesion">Sí</button>
+                    <button class="btn-confirmar btn-No" id="cancelBtnSesion">No</button>
+                </div>
+            </div>
+            {% block contenido %}
+            {% endblock %}
+            <script>
+                const logoutUrl = "{% url 'userOut' %}";
+                const inicioUrl = "{% url 'inicio' %}";
+            </script>
+            <script src="../static/js/modalCerrarSesion.js"></script>
+        </div><!-- /.container-fluid -->
+        <div class="icono-flotante">
+            <a href="{% url 'preguntas' %}"><img src="/../static/img/informacion64.png" alt="Ícono"></a>
+        </div>
+    </section>
+    <!-- /.content -->
+   
+
+
+    <footer class="footer">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="iconos-social">
+            <li> <a href=""> <img src="/../static/img/facebook.png" alt="Logo facebook"> </a> </li>
+            <li> <a href=""> <img src="/../static/img/instagram.png" alt="Logo Instagram"> </a> </li>
+            <li> <a href=""> <img src="/../static/img/whatsapp.png" alt="Logo Whatsapp"> </a> </li>
+        </ul>
+        <ul class="menu">
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            <li><a href="{% url 'productosPagina' %}">Productos</a></li>
+            <li><a href="{% url 'puntos' %}">Puntos de Venta</a></li>
+            <li><a href="{% url 'blog' %}">Blog</a></li>
+            <li><a href="{% url 'contacto' %}">Contacto</a></li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'userOut' %}" >Cerrar Sesión</a>
+                </li>
+                {% else %}
+                 <li>
+                    <a href="{% url 'userIn' %}" >Iniciar Sesión</a>
+                </li>
+            {% endif %}
+        </ul>
+        <p> ©2024 Agua Real Inn | Todos los Derechos Reservados  </p>
+    </footer>
+
+</body>
+
+</html>

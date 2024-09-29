@@ -1,0 +1,47 @@
+{% extends "estructura.html" %}
+{% load static %}
+{% block contenido %}
+
+<div>
+    <br><br><br>
+
+    <h2 class="centrar-texto titulo-gris">Promociones</h2>
+    <div class="grid-container">
+        <div class="item">
+            <h3 class="titulo-pregunta">Promoción de bienvenida</h3>
+            <img src="../../static/img/promo1.jpg" alt="Imagen 1" width="100" height="100">
+            <p>¡En tu primera compra recibe 2 botellas de 2L gratis!</p>
+        </div>
+        <div class="item">
+            <h3 class="titulo-pregunta">“Primavera saludable”</h3>
+            <img src="../../static/img/promo2.jpg" alt="Imagen 2" width="100" height="100">
+            <p>¡En la compra de tu tercer garrafón recibe un 15% de descuento!</p>
+        </div>
+        <div class="item">
+            <h3 class="titulo-pregunta">Descuento por volumen</h3>
+            <img src="../../static/img/promo3.jpg" alt="Imagen 3" width="100" height="100">
+            <p>Realiza un pedido mayor a 7 garrafones y descubre la increíble oferta que tenemos para ti…</p>
+        </div>
+    </div>
+
+    <h2 class="centrar-texto titulo-gris">Datos de Salud</h2>
+    <div class="grid-container">
+        <div class="item">
+            <h3 class="titulo-pregunta">Salud de la piel</h3>
+            <img src="../../static/img/dato1.jpg" alt="Imagen 1" width="100" height="100">
+            <p>La hidratación adecuada puede ayudar a mantener la piel sana, flexible y con un aspecto radiante.</p>
+        </div>
+        <div class="item">
+            <h3 class="titulo-pregunta">Función cognitiva</h3>
+            <img src="../../static/img/dato2.jpg" alt="Imagen 2" width="100" height="100">
+            <p>La deshidratación puede afectar negativamente la función cognitiva, la concentración y el estado de ánimo.</p>
+        </div>
+        <div class="item">
+            <h3 class="titulo-pregunta">Transporte de nutrientes</h3>
+            <img src="../../static/img/dato3.jpg" alt="Imagen 3" width="100" height="100">
+            <p>El agua en el cuerpo transporta nutrientes y compuestos esenciales para las células.</p>
+        </div>
+    </div>
+        
+</div>
+{% endblock %}

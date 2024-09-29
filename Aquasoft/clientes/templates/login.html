@@ -1,0 +1,51 @@
+{% extends "estructura.html" %}
+{% load static %}
+{% block contenido %}
+
+<div>
+    <br><br><br>
+
+    <div class="centrar-texto divBtns">
+        <button class="btns btn-activo">Iniciar Sesión</button>
+        <button class="btns btn-inactivo"> <a class="rosa-txt" href="{% url 'usuarioCreate' %}">Crear cuenta</a> </button>
+    </div>
+    <div class="centrar-texto divBtns">
+        {{error}}
+   </div>
+
+    <form method="post" class="formulario" id="iniciar-sesion">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Iniciar Sesión</legend>
+
+
+            <div class="contenedor-campos login">
+                <div class="campo">
+                    <label for="email">Correo Eletrónico</label>
+                    <input id="correo" class="input-text" type="text" name="email" placeholder="Correo Electrónico" required>
+                </div>
+
+                <div class="campo">
+                    <label for="contraseña">Contraseña</label>
+                    <input id="contraseña" class="input-text" type="password" name="contraseña" placeholder="Contraseña" required>
+                </div>
+
+                <div class="campo">
+                    <p class="txtBlanco">¿Olvidaste tu Contraseña? <a href="" class="txtBlanco negrita">Restablecer</a>
+                    </p>
+                </div>
+
+                <div class="campo captcha">
+                    <div class="g-recaptcha" data-sitekey="6Lc-F5EpAAAAAJDV62Dlv7XUhkj8My004RoGkP2v">
+                    </div>
+                </div>
+            </div>
+
+            <div class="centrar-texto">
+                <input class="btn-enviar" type="submit" value="Enviar">
+            </div>
+        </fieldset>
+    </form>
+    </section>
+</div>
+{% endblock %}

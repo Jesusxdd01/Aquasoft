@@ -1,0 +1,162 @@
+{% extends "estructura.html" %}
+{% load static %}
+{% block contenido %}
+
+<main class="contenedorPrincipal">
+    <section>
+        <br><br>
+        <h2 class="centrar-texto titulo-gris">Preguntas Frecuentes</h2>
+    </section>
+    <section class="seccion-parrafo">
+        <p>
+            En nuestra página de preguntas frecuentes, encontrarás respuestas a las dudas más comunes 
+            sobre nuestros productos y servicios. Descubre aquí todo lo que necesitas saber sobre AguaReal Inn y cómo podemos 
+            servirte mejor.
+        </p>
+    </section>
+
+    <section class="seccion-sub">
+        <h2 class="titulo-gris subtitulo">Sobre nosotros</h2>
+    </section>
+    <section>   
+        <div class="preguntas-respuestas">
+            <div class="item">
+                <div class="pregunta">
+                    <span class="titulo">¿Quiénes somos?</span>
+                    <button class="toggle">
+                        <img src="../static/img/abajo.png" alt="Desplegar">
+                    </button>
+                </div>
+                <div class="respuesta">
+                    <p>
+                        Somos una empresa dedicada a la purificación y distribución de agua de la más alta calidad. Nuestra misión es garantizar que disfrutes de agua limpia y saludable en todo momento.
+                    </p>
+                </div>
+            </div>
+        
+            <div class="item">
+                <div class="pregunta">
+                    <span class="titulo">¿Qué hacemos?</span>
+                    <button class="toggle">
+                        <img src="../static/img/abajo.png" alt="Desplegar">
+                    </button>
+                </div>
+                <div class="respuesta">
+                    <p>
+                        Llevamos a cabo la distribución de agua a los hogares, negocios y microempresas que contraten nuestros servicios ya sea por pedido o por contrato que se levante.
+                    </p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="pregunta">
+                    <span class="titulo">¿Qué ofrecemos?</span>
+                    <button class="toggle">
+                        <img src="../static/img/abajo.png" alt="Desplegar">
+                    </button>
+                </div>
+                <div class="respuesta">
+                    <p>
+                        Ofrecemos la entrega de agua purificada y de calidad, por medio de garrafones de 20 litros cada uno a como el cliente pida.
+                    </p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="pregunta">
+                    <span class="titulo">¿Dónde nos encontramos?</span>
+                    <button class="toggle">
+                        <img src="../static/img/abajo.png" alt="Desplegar">
+                    </button>
+                </div>
+                <div class="respuesta">
+                    <p>
+                        Encuentranos en Camino Real #121 col. La Aurora, Tepeyanco, Tlax. <a class="vinculo-rosa" href="{%url 'puntos'%}">Puntos de venta</a>
+                    </p>
+                </div>
+            </div> 
+        </div>
+    </section> 
+
+    <section class="seccion-sub">
+        <h2 class="titulo-gris subtitulo">Sobre los pedidos</h2>
+    </section>
+    <section>   
+        <div class="preguntas-respuestas">
+            <div class="item">
+                <div class="pregunta">
+                    <span class="titulo">¿Cómo funciona el pedido en el sitio?</span>
+                    <button class="toggle">
+                        <img src="../static/img/abajo.png" alt="Desplegar">
+                    </button>
+                </div>
+                <div class="respuesta">
+                    <p>
+                        Inicia sesión en el sitio web de la empresa Agua Real Inn, realiza un pedido en el respectivo apartado, el usuario completa un formulario con sus datos personales y la dirección de entrega. Completado el pago recibe una confirmación del pedido y la empresa pone manos a la obra y se atiende al pedido.
+                    </p>
+                </div>
+            </div>
+        
+            <div class="item">
+                <div class="pregunta">
+                    <span class="titulo">¿Cómo puedo hacer un pedido?</span>
+                    <button class="toggle">
+                        <img src="../static/img/abajo.png" alt="Desplegar">
+                    </button>
+                </div>
+                <div class="respuesta">
+                    <p>
+                        En el apartado de pedidos con un cuenta iniciada, rellena los datos necesarios en el formulario con la cantidad, domicilio, antes de pagar debe verificar que los productos en su pedido, la cantidad y el tipo de garrafones sean los correctos. Elige el método de pago que prefiera, cuando lo haya completado recibirá una confirmación de pedido y solo debe esperar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="pregunta">
+                    <span class="titulo">¿Cómo cancelo mi pedido?</span>
+                    <button class="toggle">
+                        <img src="../static/img/abajo.png" alt="Desplegar">
+                    </button>
+                </div>
+                <div class="respuesta">
+                    <p>
+                        Debe contactar directamente con la empresa a través de correo electrónico o por llamada telefónica  antes de que se haga su entrega.
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="pregunta">
+                    <span class="titulo">¿En cuánto tiempo se completa mi pedido?</span>
+                    <button class="toggle">
+                        <img src="../static/img/abajo.png" alt="Desplegar">
+                    </button>
+                </div>
+                <div class="respuesta">
+                    <p>
+                        En cuanto  recibe la confirmación de pedido nos comprometemos en entregarlo en cuestión de unas pocas horas, puede variar de la cantidad y el domicilio (puede ser menos).
+                    </p>
+                </div>
+            </div> 
+
+            <div class="item">
+                <div class="pregunta">
+                    <span class="titulo">¿Hay algún límite al realizar un pedido?</span>
+                    <button class="toggle">
+                        <img src="../static/img/abajo.png" alt="Desplegar">
+                    </button>
+                </div>
+                <div class="respuesta">
+                    <p>
+                        La cantidad máxima por disposición del vehículo empleado es de 24 garrafones, en caso que requiera más se hará la entrega total en varios viajes.
+                    </p>
+                </div>
+            </div> 
+        </div>
+    </section>
+    
+    <script src="../static/js/desplegarRespuestas.js"></script>
+  
+    
+</main>
+
+{% endblock %}

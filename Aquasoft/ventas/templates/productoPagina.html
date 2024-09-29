@@ -1,0 +1,35 @@
+{% extends "estructura.html" %}
+{% load static %}
+{% block contenido %}
+
+<main> 
+    <br><br>
+    <div class="seccion-productos">
+        <h2 class="titulo-gris centrar-texto">Productos</h2>
+    
+        {% for producto in productos %}
+        <div class="productos">
+            <div class="imagen-producto">
+                <a href="{% url 'pedidoPrueba' producto.id %}">
+                    <img class="img-producto" src="{{ producto.imagen.url }}" alt="{{ producto.descripcion }}">
+                </a>
+            </div>
+            <div class="info-producto">
+                <h3 class="titulo-producto">{{ producto.descripcion }}</h3>
+                <h3 class="precio-prodcuto">${{ producto.precio }}</h3>
+                <p class="descripcion-producto">{{ producto.detalle }}</p>
+                <div class="centrar-btn">
+                    <a href="{% url 'pedidoPrueba' producto.id %}">
+                        <button class="btn-enviar btn-pedir" type="button">Pedir</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    
+    </div>
+    
+
+</main>
+
+{% endblock %}

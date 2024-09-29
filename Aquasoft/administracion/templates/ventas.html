@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div>
+    <div id="EditarPersonalModal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title text-dark">Editar</h5>
+                </div>
+                <div class="modal-body bg-dark text-white">
+                    <form method="POST" action="{% url 'EditeVenta' %}" enctype="multipart/form-data">{% csrf_token %}
+                        <input type="hidden" id="id_egreso_editar" name="id_egreso_editar">
+                        {% for field in form_editar %}
+                        <p> {{field.label}} <br>
+                            {{field|add_class:"form-control"}}</p>
+                        {% for error in field.errors %}
+                        <p class="alarma">{{error}}</p>
+                        {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                        <p class="alarma">{{error}}</p>
+                        {% endfor %}
+                </div>
+                <div class="modal-footer bg-dark text-white">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                       Volver
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        Aceptar
+                    </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="EliminarPersonalModal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title text-dark">Eliminar</h5>
+                </div>
+                <div class="modal-body bg-dark text-white">
+                    <p class="labelmodal">¿Estás seguro?</p>
+                    <form method="POST" action="{% url 'DeleteVenta' %}">{% csrf_token %}
+                        <input type="hidden" id="id_producto_eliminar" name="id_producto_eliminar">
+                </div>
+                <div class="modal-footer bg-dark text-white">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                       Volver
+                    </button>
+                    <button type="submit" class="btn btn-success">
+                        Aceptar
+                    </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card card-body" style="overflow:scroll">
+                <table class="table table-hover table-primary" id="myTable">
+                    <thead>
+                        <tr>
+                            <th># ID</th>
+                            <th>Fecha</th>
+                            <th>Cliente</th>
+                            <!--<th>Direccion</th>-->
+                            <th>Producto</th>
+                            <th>Precio Unitario</th>
+                            <th>Cantidad</th>
+                            <th>PTotal</th>
+                            <th>Fecha Entrega</th>
+                            <th>Entregado</th>
+                            <th>Comentarios</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-dark">
+                        {% for i in venta %}
+                        <tr>
+                            <td>{{i.id}}</td>
+                            <th>{{i.created}}</th>
+                            <td>{{i.cliente}}</td>
+                            <!--<td>{{ i.cliente.direccion}}</td>-->
+                            
+                            <td>{{i.producto}}</td>
+                            <td>{{i.precioUnitario}}</td>
+                            <td>{{i.cantidad}}</td>
+                            <td>{{i.total}}</td>
+                            <td>{{i.fecha_pedido}}</td>
+                            <td>{{i.pagado}}</td>
+                            <td>{{i.comentarios}}</td>
+                           
+
+                            <td>
+                               <!-- <button onclick="editarEgreso('{{i.id}}', '{{i.pagado}}',)" class="btn btn-dark-outline btn-sm" data-toggle="modal"
+                                href="#EditarPersonalModal"><img src="{% static 'index/img/editar.png' %}" alt="Error"
+                                    width="30"></button>-->
+                            
+                                <button onclick="eliminarProducto('{{i.id}}')" class="btn btn-dark-outline btn-sm"
+                                    data-toggle="modal" href="#EliminarPersonalModal"><img
+                                        src="{% static 'index/img/delete.png' %}" alt="Error" width="30"></button>
+                                
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

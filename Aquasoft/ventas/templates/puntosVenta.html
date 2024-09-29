@@ -1,0 +1,65 @@
+{% extends "estructura.html" %}
+{% load static %}
+{% block contenido %}
+
+<main>
+    <br><br>
+    <div>
+        <h2 class="centrar-texto titulo-gris">¡Conoce Nuestras Sucursales!</h2>
+    </div>
+
+    <div class="contendor-punto-venta">
+
+        <div class="contendor-informacion">
+            <h4>Sucursal 1:</h4>
+            <div class="alinear-verticalmente" > 
+                <img src="../static/img/marcador.png" alt="Ícono de Ubicación">
+                <p class="parrafo-grande"> Camino Real #121 col. La Aurora, Tepeyanco, Tlax.</p>  
+            </div>
+            <div class="alinear-verticalmente"> 
+                <img src="../static/img/telefono.png" alt="Ícono de Teléfono">
+                <p class="parrafo-grande"> 2464805185</p> 
+            </div>
+            <div class="alinear-verticalmente div-sin-bottom"> 
+                <img src="../static/img/horarios.png" alt="Ícono de Horario">
+                <p class="parrafo-grande"> Horarios de atención</p>
+            </div>
+            <div class="horarios">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Horario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lunes a viernes</td>
+                            <td>9:00 a.m. - 6:00 p.m.</td>
+                        </tr>
+                        <tr>
+                            <td>Sábado</td>
+                            <td>10:00 a.m. - 2:00 p.m.</td>
+                        </tr>
+                        <tr>
+                            <td>Domingo</td>
+                            <td>Cerrado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="contenedor-mapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.595602331867!2d-98.228398!3d19.256448399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfdf192efd6311%3A0xb606db09001ef17b!2sAgua%20Real%20Inn.!5e0!3m2!1ses-419!2smx!4v1712425621249!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="contenedor-mapa2">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3766.595602745578!2d-98.23097292479012!3d19.25644838198561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfdf192efd6311%3A0xb606db09001ef17b!2sAgua%20Real%20Inn.!5e0!3m2!1ses-419!2smx!4v1712796799254!5m2!1ses-419!2smx" width="390" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <script src="../static/js/cambiarMapa.js"></script>
+
+    </div>
+    
+</main>
+{% endblock %}

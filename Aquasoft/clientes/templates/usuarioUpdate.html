@@ -1,0 +1,12 @@
+{% extends "estructura.html" %}
+
+{% block contenido %}
+<div class="container">
+    <h2>Modificar Datos</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+</div>
+{% endblock %}
